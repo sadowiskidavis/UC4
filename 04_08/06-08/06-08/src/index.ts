@@ -59,29 +59,78 @@ Evite for...in em arrays, pois os índices retornados são strings.
 
 
 
+// 1 - Sociedade do Anel - Hobbits
+const sociedade = ['Frodo', 'Sam', 'Gandalf', 'Legolas', 'Gimli', 'Merry', 'Pippin', 'Aragorn', 'Boromir'];
 
-
-
-const sociedade:string[]= ['Frodo', 'Sam', 'Gandalf', 'Legolas', 'Gimli', 'Merry', 'Pippin', 'Aragorn', 'Boromir']
-
-for (let i:string = ['frodo','sam', 'pippin', 'merry'] ; i < sociedade.length; i ++){
-    console.log("hobbit encontrado:" + sociedade[i])
+for (let i = 0; i < sociedade.length; i++) {
+    if (sociedade[i] === 'Frodo'
+        || sociedade[i] === 'Sam'
+        || sociedade[i] === 'Merry'
+        || sociedade[i] === 'Pippin') {
+        console.log(`Hobbit encontrado: ${sociedade[i]}`);
+    }
 }
 
-const personagens = [
+// 2 - Star Wars - Jedis
+const personagensSW = [
     { nome: 'Luke Skywalker', jedi: true },
     { nome: 'Leia Organa', jedi: false },
     { nome: 'Yoda', jedi: true },
     { nome: 'Darth Vader', jedi: false },
-  ];
+];
 
-for (let jedi of personagens){
-    if(jedi === true){
-        console.log(personagens.nome)
+for (let personagem of personagensSW) {
+    if (personagem.jedi) {
+        console.log(`Jedi encontrado: ${personagem.nome}`);
     }
-    
-    
 }
 
+// 3 - Naruto - Clãs
+const personagensNaruto = {
+    Naruto: 'Uzumaki',
+    Sasuke: 'Uchiha',
+    Sakura: 'Haruno',
+    Kakashi: 'Hatake'
+};
 
+for (let personagem in personagensNaruto) {
+    console.log(`${personagem} pertence ao clã ${personagensNaruto[personagem as keyof typeof personagensNaruto]}`);
+}
 
+ 4 - Dragon Ball - Poder
+const personagensDBZ = [
+{ nome: 'Goku', poder: 15000 },
+{ nome: 'Vegeta', poder: 14999 },
+{ nome: 'Krillin', poder: 7500 },
+{ nome: 'Freeza', poder: 20000 },
+];
+
+personagensDBZ.forEach((personagem) => {
+if (personagem.poder > 8000) {
+console.log(`O poder de ${personagem.nome} é de mais de 8000!`);
+}
+});
+
+// 5 - Pokémon - While
+const pokemons = ['Pikachu', 'Charmander', 'Bulbasaur', 'Mewtwo', 'Squirtle'];
+let contador = 0;
+
+while (contador < pokemons.length) {
+if (pokemons[contador] === 'Mewtwo') {
+console.log('Pokémon lendário encontrado: Mewtwo!');
+break;
+}
+console.log(`Capturando ${pokemons[contador]}`);
+contador++;
+}
+
+// 6 - Terra Média - do...while
+let passos = 0;
+const passosParaMordor = 5;
+
+do {
+console.log(`Dando passo ${passos}`);
+passos++;
+} while (passos < passosParaMordor);
+
+console.log('Chegamos em Mordor!');
