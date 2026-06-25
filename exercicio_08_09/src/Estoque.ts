@@ -15,4 +15,6 @@ export class Estoque<T> {
     remover(indice: number): void { this.itens.splice(indice, 1); }
 
     
+    
+
   } 
